@@ -45,34 +45,36 @@ const resources = [
 ];
 const resourceWidgets = [Courses(), Scolarships(), Internships(), FullTime()];
 
-const images = ['courses.jpg', 'scholarsips.jpg', 'internship.jpg', 'job.jpg'];
+const images = ['courses.jpg', 'scholarsips.jpg', 'internship.png', 'job.jpg'];
 List<Widget> createTiles(context) {
   List<Widget> tiles = [];
   for (int i = 0; i < resources.length; i++) {
     tiles.add(
-      Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-        child: Card(
-          child: ListTile(
-            leading: SizedBox(
-              width: 40.0,
-              child: Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                  image: AssetImage('assets/${images[i]}'),
-                  fit: BoxFit.cover,
-                )),
+      SizedBox(
+        height: 70.0,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 10.0),
+          child: Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage('assets/${images[i]}'),
+                // backgroundColor: Colors.blue,
+                radius: 30.0,
+                // child: ClipOval(
+                //   child: Image.asset(
+                //     'assets/${images[i]}',
+                //     fit: BoxFit.cover,
+                //   ),
+                // ),
               ),
+              title: Text(resources[i].toString()),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => resourceWidgets[i]));
+              },
             ),
-            // leading: const CircleAvatar(
-            //   backgroundColor: Colors.blue,
-            //   radius: 20.0,
-            // ),
-            title: Text(resources[i].toString()),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => resourceWidgets[i]));
-            },
           ),
         ),
       ),

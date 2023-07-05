@@ -23,7 +23,15 @@ class _HomeScreenState extends State<HomeScreen> {
           if (snapshot.hasData) {
             dynamic userData = snapshot.data ?? '';
             return Center(
-              child: Text('Welcome ${userData['name']}'),
+              child: Column(
+                children: [
+                  Text('Welcome ${userData['name']}'),
+                  CircleAvatar(
+                    backgroundImage: AssetImage('assets/courses.jpg'),
+                    radius: 50.0,
+                  )
+                ],
+              ),
             );
           } else {
             return Loading();
