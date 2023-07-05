@@ -4,7 +4,6 @@ import 'package:mentor_mee/screens/loading.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:mentor_mee/services/services.dart';
-// import 'package:mentor_mee/screens/Home/student_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -25,11 +24,13 @@ class _HomeScreenState extends State<HomeScreen> {
             return Center(
               child: Column(
                 children: [
-                  Text('Welcome ${userData['name']}'),
-                  CircleAvatar(
-                    backgroundImage: AssetImage('assets/courses.jpg'),
-                    radius: 50.0,
-                  )
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  Text(
+                    'Welcome ${userData['name']}',
+                    style: TextStyle(fontSize: 20.0),
+                  ),
                 ],
               ),
             );
