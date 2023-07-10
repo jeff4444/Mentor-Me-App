@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mentor_mee/constants/constants.dart';
-import 'package:mentor_mee/menu_screens/Resources/courses.dart';
+// import 'package:mentor_mee/menu_screens/Resources/courses.dart';
 import 'package:mentor_mee/screens/student.dart';
 
 class StudentTile extends StatelessWidget {

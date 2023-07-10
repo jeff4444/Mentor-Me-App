@@ -6,6 +6,7 @@ import 'package:mentor_mee/screens/Home/home_screen.dart';
 import 'package:mentor_mee/services/services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
+import 'package:mentor_mee/screens/settings.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -35,14 +36,27 @@ class _HomeState extends State<Home> {
           title: Text('MentorMee'),
           actions: [
             ElevatedButton.icon(
+              style: ElevatedButton.styleFrom(
+                elevation: 0.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.zero,
+                ),
+              ),
               onPressed: () {
-                setState(() {});
+                setState(() {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => UserSettings()));
+                });
               },
               icon: Icon(Icons.settings),
               label: Text('Settings'),
             ),
             ElevatedButton.icon(
-                style: ButtonStyle(),
+                style: ElevatedButton.styleFrom(
+                    elevation: 0.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.zero,
+                    )),
                 onPressed: () {
                   dynamic res = _auth.SignOut();
                   if (res == null) {
